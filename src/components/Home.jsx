@@ -11,7 +11,7 @@ return (
         <h1></h1>
         <button variant="myButton_red" id="Btn_Sit"> Situation </button>
         <h1></h1>
-        <button variant="myButton_red" id="Btn_Bud " onClick={"/Home/destination"} > Budget </button>		
+        <button onClick={window.location"www.google.com"} variant="myButton_red" id="Btn_Bud "> Budget </button>		
 	    <h1></h1>
 
 	<div className="App-Accueil-submit">
