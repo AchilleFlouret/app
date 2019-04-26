@@ -1,0 +1,74 @@
+.App {
+  text-align: center;
+  background-color: #CCCCCC
+  
+;
+
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header {
+  text-align: center;
+  background-color: #CCCCCC;
+  height: 80px;
+}
+
+
+.App-Destination
+{
+	background-color: #993333;
+}
+.App-Destination-select
+{
+  background-color: #993333;
+  text-align: left;
+}
+
+.App-Situation
+{
+  background-color: #FFA500;
+}
+
+.App-Situation-select
+{
+  background-color: #FFA500;
+}
+
+.App-Budget
+{
+  background-color: #32CD32;
+  text-align: center;
+}
+
+.App-Budget_select
+{
+  background-color: #32CD32;
+  text-align: center;
+
+}
+
+.App-Home
+{
+   background-color: #FFFF;
+  text-align: center;
+  margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+  transform: translateY(-100%); /* tiré de la moitié de sa propre hauteur */
+}
+
+.App-Accueil-submit
+{
+  background-color: #FFFF;
+  text-align: center;
+}
+
+.App-Accueil-submit
+{
+  background-color: #FFFF;
+  text-align: center;
+}
+
+
+
