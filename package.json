@@ -4,14 +4,23 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.4.1",
+    "get-value": "^3.0.1",
     "jquery": "^1.9.1",
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
+    "react-datepicker": "^2.5.0",
+    "react-dates": "^20.1.0",
+    "react-daypicker": "^3.0.8",
     "react-dom": "^16.8.6",
+    "react-rangeslider": "^2.2.0",
+    "react-responsive-widget": "^2.0.0",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "react-slick": "^0.24.0",
+    "reactstrap": "^8.0.0",
+    "select": "^1.1.2"
   },
   "devDependencies": {},
   "scripts": {
