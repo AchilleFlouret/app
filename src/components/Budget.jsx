@@ -6,7 +6,14 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import {Link} from "react-router-dom"
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
-import logo from './images/Mobee.png';
+import logo from './images/Mobee.png'
+import PlacesAutocomplete from 'react-places-autocomplete';
+import {
+  geocodeByAddress,
+  geocodeByPlaceId,
+  getLatLng,
+} from 'react-places-autocomplete';
+
 
 
 const params = new URLSearchParams(location.search);
@@ -51,7 +58,7 @@ render (){
   <br /> 
 <div className="row">
 <div className="col-xs-8">
-  <input type="number"className="myButton" onChange={e => this.modifSearch(e.target.value,1)} defaultValue={this.getParams().get('bud')}></input> 
+  <input type="number"className="myButton" placeholder="Mon budget " onChange={e => this.modifSearch(e.target.value,1)} defaultValue={this.getParams().get('bud')}></input> 
 </div>
  <div className="col-xs-4">
  <h2>€</h2>
