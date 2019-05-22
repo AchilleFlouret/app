@@ -13,7 +13,6 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import SearchBar from 'material-ui-search-bar';
 import destina from "./Situation";
-import Checkbox from 'rc-checkbox';
 
 
 
@@ -363,7 +362,7 @@ return (
             </div>
             <div className="col-xs-3">
             <div className="colCheck">
-              <Checkbox               
+              <input type="checkbox"               
                 onChange={e => this.ModifHmo(e)} 
                 defaultChecked={bud.getParams().get('hmo')}
               />
@@ -381,7 +380,7 @@ return (
             </div>
             <div className="col-xs-3">
              <div className="colCheck">
-              <Checkbox               
+              <input type="checkbox"             
                 onChange={e => this.ModifHme(e)} 
                 defaultChecked={bud.getParams().get('hme')}
               />
@@ -399,7 +398,7 @@ return (
             </div>
             <div className="col-xs-3">
             <div className="colCheck">
-              <Checkbox               
+              <input type="checkbox"               
                 onChange={e => this.ModifHa(e)} 
                 defaultChecked={bud.getParams().get('ha')}
               />
@@ -415,7 +414,7 @@ return (
             </div>
             <div className="col-xs-3">
             <div className="colCheck">
-              <Checkbox               
+              <input type="checkbox"             
                 onChange={e => this.ModifHv(e)} 
                 defaultChecked={bud.getParams().get('hv')}
               />
