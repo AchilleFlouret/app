@@ -11,7 +11,7 @@ import twit from './images/twitter.png';
 import budget from"./Budget";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
-import SearchBar from 'material-ui-search-bar';
+
 import destina from "./Situation";
 import Script from 'react-load-script';
 
@@ -309,14 +309,6 @@ return (
           onLoad={this.handleScriptLoad}
         />
    
-        <SearchBar id="autocomplete" size="50" placeholder="Votre destination" value={this.state.place}
-        onResultSelect={this.modifSearch(this.state.place,'dest')} 
-        style={{
-            margin: '0 auto',
-            maxWidth: 400,
-            size : 50,  
-          }}
-        />
   
       </div>
 

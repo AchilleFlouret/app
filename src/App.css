@@ -382,6 +382,13 @@ height:40px;
 
 }
 
+.input:active{
+
+    border:inherit;
+    border:0px solid transparent !important;
+
+}
+
 .myButtonBud {
   -moz-box-shadow:inset 0px -3px 0px 0px #ffffff;
   -webkit-box-shadow:inset 0px -3px 0px 0px #ffffff;
