@@ -1,7 +1,7 @@
 // Imports
 import React, { Component } from 'react';
 import {Link} from "react-router-dom"
-
+import SearchBar from 'material-ui-search-bar';
 import Script from 'react-load-script';
 import home from"./Home";
 import budget from"./Budget";
@@ -105,7 +105,15 @@ componentDidMount(){
           onLoad={this.handleScriptLoad}
         />
    
-
+        <SearchBar id="autocomplete" size="50" placeholder="Votre destination" value={this.state.place}
+        onResultSelect={hom.modifSearch(this.state.place,'dest')} 
+        style={{
+            margin: '0 auto',
+            maxWidth: 400,
+            size : 50,
+            
+          }}
+        />
      </div>
       </div>
 <div className="RetourDest">
