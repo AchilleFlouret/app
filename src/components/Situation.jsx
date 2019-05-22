@@ -11,7 +11,8 @@ import { Button, Col, Row } from 'react-bootstrap'
 import './../App.css';
 import logo from './images/Mobee.png';
 
-
+const bud = new budget();
+var destina ="gg";
 
 class Situation extends Component {
 
@@ -21,11 +22,21 @@ class Situation extends Component {
    
     } 
 
+
+
+componentDidMount(){
+  console.log(bud.getParams().toString());
+  this.destina=bud.getParams();
+  console.log(bud.getParams().toString());
+}
 /*Fonction mofification des paramètres de l'URL
   pVal : valeur à passer en paramètre
   pIndex : index du paramètre
 */
-
+getDestina()
+{
+  return this.destina;
+}
 
 render (){
 

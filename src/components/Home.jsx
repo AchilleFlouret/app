@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import './../App.css';
 import DropdownButton from 'react-bootstrap/DropdownButton'
 import SplitButton from 'react-bootstrap/SplitButton'
-import Dropdown from 'react-bootstrap/Dropdown'
 import Button from 'react-bootstrap/Button'
 import logo from './images/Mobee.png';
 import fb from './images/facebook.png';
@@ -16,16 +15,24 @@ import SearchBar from 'material-ui-search-bar';
 import Script from 'react-load-script';
 import Select from 'react-select';
 import TextInput from 'mineral-ui/TextInput';
+import destina from "./Situation";
+import { Dropdowns } from 'semantic-ui-react';
+import Checkbox from 'rc-checkbox';
+import Dropdown from 'rc-dropdown';
 
 
 const options = [
-  { value: 'hm', label: 'Handicap Moteur' },
-  { value: 'hv', label: 'Handicap Visuel' },
-  { value: 'ha', label: 'Handicap Auditif' },
-  { value: 'hme', label: 'Handicap Mental' },
+  {value: 'hm', label: 'Handicap Moteur' },
+  {value: 'hv', label: 'Handicap Visuel' },
+  {value: 'ha', label: 'Handicap Auditif' },
+  {value: 'hme', label: 'Handicap Mental' },
 ];
 
+var dest="";
 const bud = new budget();
+const destinatione = new destina();
+var selectFieldName = "my-select";
+var selectPlaceholder = "Choose some options...";
 
 class Home extends Component {
 
@@ -37,7 +44,7 @@ class Home extends Component {
       startDate: "",
       startDates: "",
       city: '',
-      query: '',
+      place: '',
       selectedOption: null
     };
     this.handleChange = this.handleChange.bind(this);
@@ -48,14 +55,60 @@ class Home extends Component {
 }
 
 
-
 componentDidMount(){
-	//to put initial dates in state as default
+       console.log(bud.getParams().toString());
+  if((bud.getParams().get('datd') == null))
+  {
+          this.setState(
+        {
+          startDate:null,
+        });
+  }
+  else
+  {
+    this.setState(
+        {
+          startDate:new Date(bud.getParams().get('datd')),
+        });
+  }
 
+    if((bud.getParams().get('datr') == null))
+  {
+          this.setState(
+        {
+          startDates:null,
+        });
+  }
+  else
+  {
+    this.setState(
+        {
+          startDates:new Date(bud.getParams().get('datr')),
+        });
+  }
+
+  if(bud.getParams().get('dest')=="null")
+  {
+     this.setState(
+        {
+          place:"",
+        });
+  }
+  else
+  {
+
+    this.setState(
+        {
+          place:(bud.getParams().get('dest')),
+        });
+  }
+
+	//to put initial dates in state as default
 }
 
 
   handleScriptLoad() {
+
     // Declare Options For Autocomplete
     var options = {
       types: ['(cities)'],
@@ -70,9 +123,11 @@ componentDidMount(){
 
     // Fire Event when a suggested name is selected
     this.autocomplete.addListener('place_changed', this.handlePlaceSelect);
+
   }
   
   handlePlaceSelect() {
+    console.log("fonction2");
 
     // Extract City From Address Object
     let addressObject = this.autocomplete.getPlace();
@@ -84,14 +139,38 @@ componentDidMount(){
       this.setState(
         {
           city: address[0].long_name,
-          query: addressObject.formatted_address,
+          place: addressObject.formatted_address,
         }
       );
     }
   }
 
  modifSearch(pVal,pIndex) 
+
  {
+    if(pIndex=='hmo')
+  {
+    bud.getParams().set('hmo', pVal);
+
+    }
+
+        if(pIndex=='hme')
+  {
+    bud.getParams().set('hme', pVal);
+
+    }
+
+        if(pIndex=='ha')
+  {
+    bud.getParams().set('ha', pVal);
+
+    }
+
+        if(pIndex=='hv')
+  {
+    bud.getParams().set('hv', pVal);
+
+    }
  	if(pIndex=='bud')
  	{
     bud.getParams().set('bud', pVal);
@@ -105,22 +184,38 @@ componentDidMount(){
      	if(pIndex=='datd')
  	{
     bud.getParams().set('datd', pVal);
-    	console.log(bud.getParams().get('datd'));
-
-   
-  
+    	 
     }
      	if(pIndex=='datr')
  	{
     bud.getParams().set('datr', pVal);
 
     }
-         	if(pIndex=='dest')
- 	{
-    bud.getParams().set('dest', pVal);
+
+          if(pIndex=='sit')
+  {
+    bud.getParams().set('sit', pVal);
 
     }
-      console.log(bud.getParams().toString());
+
+         	if(pIndex=='dest')
+ 	  {
+      if(pVal=="")
+      {
+          var desti=bud.getParams().get('dest');
+          bud.getParams().set('dest', desti);
+      }
+      else
+      {
+        bud.getParams().set('dest', pVal);
+      }
+
+
+
+      //bud.getParams().set('dest', pVal);
+
+    }
+
 
  }
 
@@ -140,17 +235,66 @@ componentDidMount(){
   }
 
 
- handleChangeSit = (selectedOption) => {
-    this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
-  }
+  ModifHmo (pVal) 
+{
+    if(pVal.target.checked==false)
+    {
+      bud.getParams().delete('hmo');
+    }
+    else
+    {
+    this.modifSearch(pVal.target.checked,'hmo');
+    }
+}
+
+  ModifHme (pVal) 
+{
+    if(pVal.target.checked==false)
+    {
+      bud.getParams().delete('hme');
+    }
+    else
+    {
+    this.modifSearch(pVal.target.checked,'hme');
+    }
+}
+
+  ModifHa (pVal) 
+{
+    if(pVal.target.checked==false)
+    {
+      bud.getParams().delete('ha');
+    }
+    else
+    {
+    this.modifSearch(pVal.target.checked,'ha');
+    }
+}
+
+  ModifHv (pVal) 
+{
+    if(pVal.target.checked==false)
+    {
+      bud.getParams().delete('hv');
+    }
+    else
+    {
+    this.modifSearch(pVal.target.checked,'hv');
+    }
+}
+     
+
+   
+
+
+  
 
 render (){
   const { selectedOption } = this.state;
 
 return (
 	<container>
-   <br /> <br />  
+   <br /> 
 
           <div className="Bottom-logo">
         <img src={logo} className="images_petit" alt="logo" />
@@ -168,8 +312,9 @@ return (
           onLoad={this.handleScriptLoad}
         />
    
-        <SearchBar id="autocomplete"  size="50" placeholder="Votre destination" value={this.state.query}
-          style={{
+        <SearchBar id="autocomplete" size="50" placeholder="Votre destination" value={this.state.place}
+        onResultSelect={this.modifSearch(this.state.place,'dest')} 
+        style={{
             margin: '0 auto',
             maxWidth: 400,
             size : 50,
@@ -190,8 +335,8 @@ return (
             placeholderText={"Départ"}
             selected={this.state.startDate}
             onChange={this.handleChange }
-            popperClassName="react-datepicker-popper1"          
-
+            popperClassName="react-datepicker-popper1"
+            dateFormat="dd/MM/yyyy"     
             />
             </div>
             </div>
@@ -204,41 +349,123 @@ return (
             selected={this.state.startDates}
             onChange={this.handleChanges }
             popperClassName="react-datepicker-popper2"  
+            dateFormat="dd/MM/yyyy"
              
             />            
 		      	</div>
 			      </div>
             </div>
-           <Select
-              isMulti={true}
-              value={selectedOption}
-              onChange={this.handleChangeSit}
-              options={options}
-              placeholder="Vos besoins de mobilité "
-           />
+            <div className="mySituation">
+            
+
+            <div className="row">
+            <div className="col-xs-6">
+
+            <div className="row">
+            <div className="col-xs-9">
+            <h5>Handicap moteur</h5>
+            </div>
+            <div className="col-xs-3">
+            <div className="colCheck">
+              <Checkbox               
+                onChange={e => this.ModifHmo(e)} 
+                defaultChecked={bud.getParams().get('hmo')}
+              />
+
+             </div>
+             </div>
+            </div>
+            </div>
+            
+
+            <div className="col-xs-6">
+            <div className="row">
+            <div className="col-xs-9">
+            <h5>Handicap mental</h5>
+            </div>
+            <div className="col-xs-3">
+             <div className="colCheck">
+              <Checkbox               
+                onChange={e => this.ModifHme(e)} 
+                defaultChecked={bud.getParams().get('hme')}
+              />
+              </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+            <div className="row">
+            <div className="col-xs-6">
+            <div className="row">
+            <div className="col-xs-9">
+            <h5>Handicap auditif</h5>
+            </div>
+            <div className="col-xs-3">
+            <div className="colCheck">
+              <Checkbox               
+                onChange={e => this.ModifHa(e)} 
+                defaultChecked={bud.getParams().get('ha')}
+              />
+            </div>
+            </div>
+            </div>
+            </div>
+
+            <div className="col-xs-6">
+            <div className="row">
+            <div className="col-xs-9">
+            <h5>Handicap visuel</h5>            
+            </div>
+            <div className="col-xs-3">
+            <div className="colCheck">
+              <Checkbox               
+                onChange={e => this.ModifHv(e)} 
+                defaultChecked={bud.getParams().get('hv')}
+              />
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+                        
+
 
       <div className="row">
 		  <div className="col-xs-6">
+
 		  <div className="myV">
-        <select 
-        className="myButtonVoy" 
-        placeholder="Voyageurs " 
+      
+      <div className="row">
+      <div className="myVoyage" >
+      <div className="col-xs-5">
+
+    <select 
+        className="selectvoy" 
+        label="voyageurs" 
+        menuplacement="bottom"
         onChange={e => this.modifSearch(e.target.value,'voy')} 
-        drop="down"
-       // defaultValue={bud.getParams().get('voy')}>
-       >
-    <option >0</option>
+        defaultValue={bud.getParams().get('voy')}>
     <option >1</option>
     <option >2</option>
-    <option >3</option>
     <option >4</option>
-    <option >5</option>
     <option >6</option>
     <option >8</option>
     <option >10</option>
     <option >12</option>
     <option >15</option>
-  </select>  
+  </select>
+    </div> 
+      <div className="col-xs-7"> 
+      <div className="Voyageurs"> 
+      <h4>Voyageurs</h4>
+      </div>
+  </div>
+  </div>
+  </div>
+
   </div>
   </div>
   <div className="col-xs-6">
@@ -259,15 +486,11 @@ return (
    </div>
    </div>
       </div>
-
-
-
       <br />
       <br />
-      <br />	
       <br />
       <div className="App-Accueil-search">
-      <Link to="/situation">
+      <Link to="/destination">
 		<Button className="myButtonD" > Partez en vacances  </Button>
     </Link>
 		  </div>

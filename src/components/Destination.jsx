@@ -1,41 +1,135 @@
 // Imports
 import React, { Component } from 'react';
-import Select from 'react-select';
-import 'react-dates/initialize';
-import { RangeDatePicker } from '@y0c/react-datepicker';
-import '@y0c/react-datepicker/assets/styles/calendar.scss';
+import {Link} from "react-router-dom"
+import SearchBar from 'material-ui-search-bar';
+import Script from 'react-load-script';
+import home from"./Home";
+import budget from"./Budget";
 
 
-const options = [
-  { value: 'hm', label: 'Handicap Moteur' },
-  { value: 'hv', label: 'Handicap Visuel' },
-  { value: 'ha', label: 'Handicap Auditif' },
-  { value: 'hme', label: 'Handicap Moteurs' },
-];
 
-class CC extends Component {
-  state = {
-    selectedOption: null,
+const hom = new home();
+const bud = new budget();
+var dest="";
+
+class Destination extends Component {
+
+ constructor(props)
+ {
+ super(props)
+
+     this.state = 
+    {
+      city: '',
+      place: '',
+    };
+        this.handleScriptLoad = this.handleScriptLoad.bind(this);
+    this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
+ }
+
+componentDidMount(){
+       console.log(bud.getParams().toString());
+
+
+  if(bud.getParams().get('dest')=="null")
+  {
+     this.setState(
+        {
+          place:"",
+        });
   }
-  handleChange = (selectedOption) => {
-    this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption);
+  else
+  {
+
+    this.setState(
+        {
+          place:(bud.getParams().get('dest')),
+        });
   }
 
-    onChange = (date) => {
-    console.log(date);
+  //to put initial dates in state as default
+}
+
+ handleScriptLoad() {
+
+    // Declare Options For Autocomplete
+    var options = {
+      types: ['(cities)'],
+    };
+
+    // Initialize Google Autocomplete
+    /*global google*/ // To disable any eslint 'google not defined' errors
+    this.autocomplete = new google.maps.places.Autocomplete(
+      document.getElementById('autocomplete'),
+      options,
+    );
+
+    // Fire Event when a suggested name is selected
+    this.autocomplete.addListener('place_changed', this.handlePlaceSelect);
+
+  }
+  
+  handlePlaceSelect() {
+    console.log("fonction2");
+
+    // Extract City From Address Object
+    let addressObject = this.autocomplete.getPlace();
+    let address = addressObject.address_components;
+
+    // Check if address is valid
+    if (address) {
+      // Set State
+      this.setState(
+        {
+          city: address[0].long_name,
+          place: addressObject.formatted_address,
+        }
+      );
+    }
   }
 
   render() {
-    const { selectedOption } = this.state;
+  
 
     return (
+<container>
+
       <div>
-       <RangeDatePicker onChange={this.onChange}/>
 
+      <div className="CityDest">
+      <div>
+        <script type="text/javascript" size="50" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGRvEMOh6UogAHhNdq_4ggxJsobePs_Rg&libraries=places"></script>
 
+        <Script
+          url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIcM7qKHBTXUqMTKgWOnu9zGCiGbB6XmA&libraries=places"
+          onLoad={this.handleScriptLoad}
+        />
+   
+        <SearchBar id="autocomplete" size="50" placeholder="Votre destination" value={this.state.place}
+        onResultSelect={hom.modifSearch(this.state.place,'dest')} 
+        style={{
+            margin: '0 auto',
+            maxWidth: 400,
+            size : 50,
+            
+          }}
+        />
+     </div>
+      </div>
+<div className="RetourDest">
+  <Link
+  to={{
+    pathname: "/",
+  }}
+>
+      <button type="button" className="myButtonD">Retour</button>
+  </Link>
 </div>
+</div>
+
+</container>
+
     );
   }
 }
-export default CC;
+export default Destination;
