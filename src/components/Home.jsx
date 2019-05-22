@@ -12,12 +12,11 @@ import budget from"./Budget";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import SearchBar from 'material-ui-search-bar';
-import Script from 'react-load-script';
 import TextInput from 'mineral-ui/TextInput';
 import destina from "./Situation";
 import { Dropdowns } from 'semantic-ui-react';
 import Checkbox from 'rc-checkbox';
-import Dropdown from 'rc-dropdown';
+
 
 
 const options = [
@@ -306,7 +305,7 @@ return (
       <div>
         <script type="text/javascript" size="50" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGRvEMOh6UogAHhNdq_4ggxJsobePs_Rg&libraries=places"></script>
 
-        <Script
+        <script
           url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIcM7qKHBTXUqMTKgWOnu9zGCiGbB6XmA&libraries=places"
           onLoad={this.handleScriptLoad}
         />
