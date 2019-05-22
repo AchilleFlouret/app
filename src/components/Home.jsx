@@ -13,7 +13,6 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import SearchBar from 'material-ui-search-bar';
 import Script from 'react-load-script';
-import Select from 'react-select';
 import TextInput from 'mineral-ui/TextInput';
 import destina from "./Situation";
 import { Dropdowns } from 'semantic-ui-react';
