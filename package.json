@@ -29,6 +29,7 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "0.9.5",
+    "react-search-field": "^1.0.0",
     "react-select-box": "^3.0.1",
     "react-slick": "^0.24.0",
     "react-toolbox": "^2.0.0-beta.13",

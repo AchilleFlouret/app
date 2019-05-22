@@ -13,6 +13,8 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import SearchBar from 'material-ui-search-bar';
 import destina from "./Situation";
+import Script from 'react-load-script';
+
 
 
 
@@ -102,7 +104,7 @@ componentDidMount(){
 }
 
 
-  handleScriptLoad() {
+ handleScriptLoad() {
 
     // Declare Options For Autocomplete
     var options = {
@@ -302,7 +304,7 @@ return (
       <div>
         <script type="text/javascript" size="50" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGRvEMOh6UogAHhNdq_4ggxJsobePs_Rg&libraries=places"></script>
 
-        <script
+        <Script
           url="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIcM7qKHBTXUqMTKgWOnu9zGCiGbB6XmA&libraries=places"
           onLoad={this.handleScriptLoad}
         />
@@ -312,8 +314,7 @@ return (
         style={{
             margin: '0 auto',
             maxWidth: 400,
-            size : 50,
-            
+            size : 50,  
           }}
         />
   
