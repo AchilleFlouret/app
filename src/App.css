@@ -397,7 +397,7 @@ height:40px;
   -moz-border-radius:3px;
   -webkit-border-radius:3px;
   border-radius:10px;
-  border:2px solid #c0c0c0;
+  border:0px solid #c0c0c0;
   display:inline-block;
   cursor:pointer;
   font-family: "Arial" !important;
@@ -408,7 +408,9 @@ height:40px;
    opacity:2;
    width:100%;
    text-align: left;
-  height: 51px;
+   padding-top:24px;
+   height:0px;
+
 
 
 }
@@ -1066,6 +1068,12 @@ transform: translate3d(-48px,50px,0px) !important;
 .Voyageurs
 {
   color:black;
+}
+
+.BudgetSigne
+{
+  color:black;
+  padding-top:5px;
 }
 
 .mySituation {

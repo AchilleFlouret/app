@@ -12,9 +12,7 @@ import budget from"./Budget";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import SearchBar from 'material-ui-search-bar';
-import TextInput from 'mineral-ui/TextInput';
 import destina from "./Situation";
-import { Dropdowns } from 'semantic-ui-react';
 import Checkbox from 'rc-checkbox';
 
 
@@ -468,16 +466,26 @@ return (
   </div>
   <div className="col-xs-6">
   <div className="myB">
-         <TextInput 
+        <div className="row">
+        <div className="myVoyage" >
+      <div className="col-xs-9">
+         <input
          type="number" 
          className="myButtonBud" 
          placeholder="Budget"         
          defaultValue={bud.getParams().get('bud')}
          onChange={e => this.modifSearch(e.target.value,'bud')} 
-         name="eur"
-         suffix="€"
          >
-         </TextInput>  
+         </input>  
+         </div>
+         <div className="col-xs-3">
+         <div className="BudgetSigne"> 
+         <h4>€</h4>
+         </div>
+          </div>
+         </div>
+           </div>
+
          </div>
 
        </div>
