@@ -37,19 +37,10 @@ componentDidMount(){
   console.log(this.getParams().toString());
 }
 
-
-
-
-
-
 render (){
   const { selectedOption } = this.state;
   return(
     <container>
-
-
-
-
 
 <div className="Bottom-retour">
   <Link

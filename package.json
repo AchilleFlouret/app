@@ -39,11 +39,16 @@
     "reactstrap": "^8.0.0",
     "select": "^1.1.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "nodemon": "^1.19.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy":"http://localhost:6060"
+
 }

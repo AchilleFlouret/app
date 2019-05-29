@@ -12,10 +12,8 @@ import budget from"./Budget";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import SearchBar from 'material-ui-search-bar';
-import destina from "./Situation";
+import situation from "./Situation";
 import Script from 'react-load-script';
-
-
 
 
 const options = [
@@ -26,8 +24,9 @@ const options = [
 ];
 
 var dest="";
+var voy=1;
 const bud = new budget();
-const destinatione = new destina();
+
 var selectFieldName = "my-select";
 var selectPlaceholder = "Choose some options...";
 
@@ -49,11 +48,36 @@ class Home extends Component {
     this.handleScriptLoad = this.handleScriptLoad.bind(this);
     this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
 
+
 }
+
+
+     handleChange(date) {
+    this.setState({
+      startDate: date
+    });
+    this.modifSearch(date,'datd');
+  }
+
+      handleChanges(dates) {
+    this.setState({
+      startDates: dates
+      
+    });
+    this.modifSearch(dates,'datr');
+  }
+
 
 
 componentDidMount(){
        console.log(bud.getParams().toString());
+
+
+    if((bud.getParams().get('voy') == null))
+  {
+    bud.getParams().set('voy', 1);
+  }
+
   if((bud.getParams().get('datd') == null))
   {
           this.setState(
@@ -136,7 +160,7 @@ componentDidMount(){
       this.setState(
         {
           city: address[0].long_name,
-          place: addressObject.formatted_address,
+          place: addressObject.name,
         }
       );
     }
@@ -145,6 +169,7 @@ componentDidMount(){
  modifSearch(pVal,pIndex) 
 
  {
+  console.log("coucou");
     if(pIndex=='hmo')
   {
     bud.getParams().set('hmo', pVal);
@@ -207,29 +232,8 @@ componentDidMount(){
         bud.getParams().set('dest', pVal);
       }
 
-
-
-      //bud.getParams().set('dest', pVal);
-
     }
-
-
  }
-
-     handleChange(date) {
-    this.setState({
-      startDate: date
-    });
-    this.modifSearch(date,'datd');
-  }
-
-      handleChanges(dates) {
-    this.setState({
-      startDates: dates
-      
-    });
-    this.modifSearch(dates,'datr');
-  }
 
 
   ModifHmo (pVal) 
@@ -311,6 +315,7 @@ return (
    
         <SearchBar id="autocomplete" size="50" placeholder="Votre destination" value={this.state.place}
         onResultSelect={this.modifSearch(this.state.place,'dest')} 
+        onCancelSearch={()=>this.modifSearch("null",'dest')}
         style={{
             margin: '0 auto',
             maxWidth: 400,
