@@ -13,6 +13,32 @@ const hom = new home();
 const bud = new budget();
 var dest="";
 
+const CustomDepart = (props) => {
+    return (
+        <input
+            className="myButtonVoy"
+            placeholder={"Depart"}
+            onClick={props.onClick}
+            value={props.value}
+            type="text"
+            readOnly={true}
+        />
+    )
+}
+
+const CustomRetour = (props) => {
+    return (
+        <input
+            className="myButtonVoy"
+            placeholder={"Retour"}
+            onClick={props.onClick}
+            value={props.value}
+            type="text"
+            readOnly={true}
+        />
+    )
+}
+
 class Destination extends Component {
 
  constructor(props)
@@ -189,6 +215,7 @@ return (
       <div className="col-xs-6">
       <div className="myV">
             <DatePicker className="myButtonVoy"
+            customInput={<CustomDepart />}
             minDate={new Date()}
             placeholderText={"Départ"}
             selected={this.state.startDate}
@@ -202,6 +229,7 @@ return (
             <div className="myB">
             <DatePicker 
             className="myButtonVoy " 
+            customInput={<CustomRetour />}
             minDate={this.state.startDate}
             placeholderText={"Retour"}
             selected={this.state.startDates}
