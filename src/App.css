@@ -7,7 +7,6 @@ body
   background-image: url(./plagess.jpg);
   background-size: 350%;
   font-family:"Arial", Arial, serif;
-  position:fixed;
 
 }
 
@@ -121,6 +120,7 @@ font-family:Arial;
   text-align: center;
    padding-top :1vh;
    padding-bottom :7vh;
+   position:fixed;
  
 }
 
