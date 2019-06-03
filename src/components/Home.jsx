@@ -539,7 +539,7 @@ return (
 
         
 
-<KeyboardAvoidingView behavior="height">
+<KeyboardAvoidingView behavior="padding">
         <div className="Bottom-app">
         <a href="http://facebook.com/mobeetravel">
         <img src={fb} className="images_icone"/>
