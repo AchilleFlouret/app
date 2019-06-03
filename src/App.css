@@ -119,9 +119,7 @@ font-family:Arial;
   width: 100%;
   text-align: center;
    padding-top :1vh;
-   padding-bottom :7vh;
-   position:fixed;
- 
+   padding-bottom :7vh; 
 }
 
 .Bottom-app a {
