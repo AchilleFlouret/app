@@ -1,8 +1,8 @@
 
 
 
-body {
-
+body 
+{
   color: black;
   background-image: url(./plagess.jpg);
   background-size: 350%;
@@ -936,10 +936,92 @@ transform: translate3d(-48px,50px,0px) !important;
   font-family:Arial;
   font-size:19px;
   padding:6px 24px;
-  text-decoration:none;
+  text-decoration:none;  
   text-shadow:0px 1px 0px #154682;
 }
 
+.btn-primary:active{
+  -moz-box-shadow:inset 0px 0px 0px 0px #54a3f7 !important;
+  -webkit-box-shadow:inset 0px 0px 0px 0px #54a3f7 !important;
+  box-shadow:inset 0px 0px 0px 0px #54a3f7 !important;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #007dc1), color-stop(1, #0061a7)) ;
+  background:-moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background:-webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background:-o-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background:-ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dc1', endColorstr='#0061a7',GradientType=0);
+  background-color:#007dc1!important;
+  -moz-border-radius:5px!important;
+  -webkit-border-radius:5px!important;
+  border-radius:5px!important;
+  border:1px solid #124d77!important;
+  display:inline-block!important;
+  cursor:pointer!important;
+  color:#ffffff!important;
+  font-family:Arial!important;
+  font-size:19px !important;
+  padding:6px 24px !important;
+  text-decoration:none !important;
+  text-shadow:0px 1px 0px #154682 !important;
+}
+
+.btn-primary:hover{
+  -moz-box-shadow:inset 0px 0px 0px 0px #54a3f7 !important;
+  -webkit-box-shadow:inset 0px 0px 0px 0px #54a3f7 !important;
+  box-shadow:inset 0px 0px 0px 0px #54a3f7 !important;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #007dc1), color-stop(1, #0061a7)) ;
+  background:-moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background:-webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background:-o-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background:-ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dc1', endColorstr='#0061a7',GradientType=0);
+  background-color:#007dc1!important;
+  -moz-border-radius:5px!important;
+  -webkit-border-radius:5px!important;
+  border-radius:5px!important;
+  border:1px solid #124d77!important;
+  display:inline-block!important;
+  cursor:pointer!important;
+  color:#ffffff!important;
+  font-family:Arial!important;
+  font-size:19px !important;
+  padding:6px 24px !important;
+  text-decoration:none !important;
+  text-shadow:0px 1px 0px #154682 !important;
+  width:inherit !important;
+  font-weight: normal !important;
+
+}
+
+.btn-primary:active{
+  -moz-box-shadow:inset 0px 0px 0px 0px #54a3f7 !important;
+  -webkit-box-shadow:inset 0px 0px 0px 0px #54a3f7 !important;
+  box-shadow:inset 0px 0px 0px 0px #54a3f7 !important;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #007dc1), color-stop(1, #0061a7)) ;
+  background:-moz-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background:-webkit-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background:-o-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background:-ms-linear-gradient(top, #007dc1 5%, #0061a7 100%);
+  background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#007dc1', endColorstr='#0061a7',GradientType=0);
+  background-color:#007dc1!important;
+  -moz-border-radius:5px!important;
+  -webkit-border-radius:5px!important;
+  border-radius:5px!important;
+  border:1px solid #124d77!important;
+  display:inline-block!important;
+  cursor:pointer!important;
+  color:#ffffff!important;
+  font-family:Arial!important;
+  font-size:19px !important;
+  padding:6px 24px !important;
+  text-decoration:none !important;
+  text-shadow:0px 1px 0px #154682 !important;
+  width:inherit !important;
+  font-weight: normal !important;
+}
 
 .Voyleft
 {
@@ -1132,6 +1214,7 @@ transform: translate3d(-48px,50px,0px) !important;
   padding-right:4px;
   height:200px;
   list-style: none;
+  position:relative !important;
 }
 
 ul

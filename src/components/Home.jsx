@@ -27,6 +27,32 @@ var dest="";
 var voy=1;
 const bud = new budget();
 
+const CustomDepart = (props) => {
+    return (
+        <input
+            className="myButtonVoy"
+            placeholder={"Depart"}
+            onClick={props.onClick}
+            value={props.value}
+            type="text"
+            readOnly={true}
+        />
+    )
+}
+
+const CustomRetour = (props) => {
+    return (
+        <input
+            className="myButtonVoy"
+            placeholder={"Retour"}
+            onClick={props.onClick}
+            value={props.value}
+            type="text"
+            readOnly={true}
+        />
+    )
+}
+
 var selectFieldName = "my-select";
 var selectPlaceholder = "Choose some options...";
 
@@ -50,6 +76,8 @@ class Home extends Component {
 
 
 }
+
+
 
 
      handleChange(date) {
@@ -332,8 +360,8 @@ return (
 			<div className="col-xs-6">
 			<div className="myV">
             <DatePicker className="myButtonVoy"
+            customInput={<CustomDepart />}
             minDate={new Date()}
-            placeholderText={"Départ"}
             selected={this.state.startDate}
             onChange={this.handleChange }
             popperClassName="react-datepicker-popper1"
@@ -344,9 +372,9 @@ return (
             <div className="col-xs-6">
             <div className="myB">
             <DatePicker 
+             customInput={<CustomRetour />}
             className="myButtonVoy " 
             minDate={this.state.startDate}
- 			      placeholderText={"Retour"}
             selected={this.state.startDates}
             onChange={this.handleChanges }
             popperClassName="react-datepicker-popper2"  
