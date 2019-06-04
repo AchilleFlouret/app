@@ -14,7 +14,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import SearchBar from 'material-ui-search-bar';
 import situation from "./Situation";
 import Script from 'react-load-script';
-import {KeyboardAvoidingView} from 'react-native';
+import {KeyboardAvoidingView, View} from 'react-native';
 
 
 const options = [
@@ -323,7 +323,7 @@ render (){
   const { selectedOption } = this.state;
 
 return (
-	<container>
+<KeyboardAvoidingView  style={{flex:1}} behavior="padding" enabled >
    <br /> 
 
           <div className="Bottom-logo">
@@ -539,7 +539,8 @@ return (
 
         
 
-<KeyboardAvoidingView behavior="padding">
+
+        <View >
         <div className="Bottom-app">
         <a href="http://facebook.com/mobeetravel">
         <img src={fb} className="images_icone"/>
@@ -551,10 +552,11 @@ return (
         <img src={inst} className="images_icone"/>
 		    </a>
         </div>
+        </View>
 
 </KeyboardAvoidingView>
 
-	</container>
+
 	);
 }
 };
