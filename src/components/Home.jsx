@@ -530,7 +530,7 @@ return (
       <br />
       <br />
       <div className="App-Accueil-search">
-      <Link to="/budget">
+      <Link to="/destination">
 		<Button className="myButtonD" > Partez en vacances  </Button>
     </Link>
 		  </div>
