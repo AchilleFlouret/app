@@ -1,11 +1,13 @@
 {
-
+"expo": { 
     "name":"my-app",
-    "displayName":"mobee travel",
-    "slug":"app",
-    "expo": { "sdkVersion": "32.0.0" },
+    "slug":"my-app",
+    "sdkVersion": "32.0.0" ,
     "privacy": "public",
-
+    "android": {
+     "package": "com.yourcompany.myapp"
+   }
+}
     
 
  
