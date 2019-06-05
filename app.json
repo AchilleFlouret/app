@@ -1,15 +1,16 @@
 {
-"expo": {
-"name":"my app",
-"icon":"./logo.png",
-"description":"some description about our project",
-"sdkVersion": "32.0.0",
-"android":{
-     "package":"com.johncy.myapp",
-      "versionCode":1 , 
-      "icon":"./logo.png"
-          }
-         },
-         "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
+
+    "name":"my-app",
+    "displayName":"mobee travel",
+    "slug":"app",
+    "expo": { "sdkVersion": "32.0.0" },
+    "privacy": "public",
+
+    
+
+ 
+
+
+  
 
 }
