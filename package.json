@@ -7,7 +7,7 @@
     "bootstrap": "^3.4.1",
     "dayjs": "^1.8.14",
     "get-value": "^3.0.1",
-    "jquery": "^1.9.1",
+    "jquery": "^3.5.0",
     "material-ui-search-bar": "^1.0.0-beta.13",
     "moment": "^2.24.0",
     "popper.js": "^1.15.0",
